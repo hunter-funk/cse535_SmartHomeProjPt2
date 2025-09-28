@@ -133,7 +133,7 @@ def get_gesture_name(filename):
     return name
 
 
-def compare_and_save_results(train_features, test_features, output_csv="results.csv"):
+def compare_and_save_results(train_features, test_features, output_csv="Results.csv"):
     # Mapping gestures to numeric labels
     gesture_to_label = {
         "0": 0, "1": 1, "2": 2, "3": 3, "4": 4,
