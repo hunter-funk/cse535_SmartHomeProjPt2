@@ -173,7 +173,6 @@ def compare_and_save_results(train_features, test_features, output_csv="Results.
     # Save single-column CSV
     with open(output_csv, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Output Label"])
         for label in output_labels:
             writer.writerow([label])
 
