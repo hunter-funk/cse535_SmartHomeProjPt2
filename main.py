@@ -96,7 +96,7 @@ def process_all_testing_videos(directory, extractor):
         feature_vec = normalize(feature_vec)
         features[video] = feature_vec
         i += 1
-    print(features)
+    # print(features)
     return features
 
 # =============================================================================
@@ -110,7 +110,6 @@ def cosine_similarity(vect1, vect2):
     return np.dot(vect1, vect2)
 
 def get_gesture_name(filename):
-    """Extracts the gesture name from filenames like 'H-0.mp4' or 'H-DecreaseFanSpeed.avi'."""
     name = os.path.splitext(os.path.basename(filename))[0]  # remove extension
     if name.startswith("H-"):
         name = name[2:]  # remove "H-"
@@ -158,8 +157,6 @@ def compare_and_save_results(train_features, test_features, output_csv="Results.
             gesture_name = get_gesture_name(train_name)
             score = cosine_similarity(test_vec, train_vec)
             # #print(f"  vs {train_name}: {score:.4f}")
-            # if score > best_score:
-            #     best_match, best_score = train_name, score
             if gesture_name not in class_scores:
                 class_scores[gesture_name] = []
             class_scores[gesture_name].append(score)
